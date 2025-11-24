@@ -1,7 +1,7 @@
 <div align="center">
   <img height="170x" src="https://avatars.githubusercontent.com/u/200391059?v=4" />
 
-  <h1>Molana</h1>
+  <h1>Bonknad</h1>
 
   <p>
     <strong>The Ultimate High-Performance EVM-Compatible Blockchain</strong>
@@ -14,7 +14,7 @@
   <p>
     <a href="#documentation"><img alt="Documentation" src="https://img.shields.io/badge/docs-comprehensive-blueviolet" /></a>
     <a href="#security-audits"><img alt="Security" src="https://img.shields.io/badge/audited-pending-yellow" /></a>
-    <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/github/license/molana/molana?color=blueviolet" /></a>
+    <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/github/license/bonknad/bonknad?color=blueviolet" /></a>
   </p>
 </div>
 
@@ -22,21 +22,21 @@
 
 ## Executive Summary
 
-**Molana** represents the next evolution in blockchain technology—a groundbreaking fork that merges the best innovations from two of 2025's most promising Layer-1 blockchains: **Monad** and **Solana**. By combining Monad's revolutionary parallel EVM execution with Solana's battle-tested high-throughput architecture, Molana delivers unprecedented performance while maintaining full Ethereum compatibility.
+**bonknad** represents the next evolution in blockchain technology—a groundbreaking fork that merges the best innovations from two of 2025's most promising Layer-1 blockchains: **Monad** and **Solana**. By combining Monad's revolutionary parallel EVM execution with Solana's battle-tested high-throughput architecture, bonknad delivers unprecedented performance while maintaining full Ethereum compatibility.
 
-Monad achieves 10,000 transactions per second with 0.8-second finality through its parallel execution engine and MonadBFT consensus, while Solana has demonstrated 16 months of continuous uptime with replay times consistently below 400ms. Molana synthesizes these technologies to create a blockchain that processes transactions faster than either parent chain while preserving developer-friendly EVM compatibility.
+Monad achieves 10,000 transactions per second with 0.8-second finality through its parallel execution engine and MonadBFT consensus, while Solana has demonstrated 16 months of continuous uptime with replay times consistently below 400ms. bonknad synthesizes these technologies to create a blockchain that processes transactions faster than either parent chain while preserving developer-friendly EVM compatibility.
 
 **Key Performance Metrics (Theoretical):**
 - **Throughput**: 50,000+ TPS (5x Monad, ~15x Solana peak sustained)
 - **Finality**: 350ms average (faster than both parents)
 - **EVM Compatibility**: 100% bytecode-compatible
-- **Consensus**: Hybrid MolanaBFT (MonadBFT + Tower BFT fusion)
+- **Consensus**: Hybrid bonknadBFT (MonadBFT + Tower BFT fusion)
 - **Block Time**: 300ms
 - **Validator Requirements**: Optimized hardware (lower than Monad, higher than base Solana)
 
 ---
 
-## The Genesis of Molana
+## The Genesis of bonknad
 
 ### Why Fork Both Chains?
 
@@ -49,7 +49,7 @@ We recognized that neither chain alone could achieve the performance ceiling dem
 3. **Solana's Strengths**: Proven reliability, Proof-of-History timestamp mechanism, massive ecosystem
 4. **Solana's Limitations**: No native EVM support, Rust/anchor learning curve for Ethereum devs
 
-**Molana's Solution**: Merge Monad's parallelization strategy with Solana's Proof-of-History to create a hybrid consensus that processes EVM transactions at Solana-level speeds.
+**bonknad's Solution**: Merge Monad's parallelization strategy with Solana's Proof-of-History to create a hybrid consensus that processes EVM transactions at Solana-level speeds.
 
 ---
 
@@ -57,15 +57,15 @@ We recognized that neither chain alone could achieve the performance ceiling dem
 
 ### Core Innovations
 
-#### 1. MolanaBFT Consensus
+#### 1. bonknadBFT Consensus
 
-MolanaBFT is a novel consensus mechanism that fuses Monad's MonadBFT consensus with Solana's Tower BFT and Proof-of-History.
+bonknadBFT is a novel consensus mechanism that fuses Monad's MonadBFT consensus with Solana's Tower BFT and Proof-of-History.
 
 **Key Components:**
 
 ```rust
-// Simplified MolanaBFT Implementation
-pub struct MolanaConsensus {
+// Simplified bonknadBFT Implementation
+pub struct bonknadConsensus {
     /// Monad-style parallel execution engine
     parallel_executor: ParallelExecutor,
     
@@ -73,13 +73,13 @@ pub struct MolanaConsensus {
     poh_clock: ProofOfHistoryClock,
     
     /// Hybrid BFT voting mechanism
-    bft_voter: MolanaBFTVoter,
+    bft_voter: bonknadBFTVoter,
     
     /// Cross-chain state manager
     state_manager: HybridStateManager,
 }
 
-impl MolanaConsensus {
+impl bonknadConsensus {
     /// Process block with parallel execution + PoH timestamps
     pub async fn process_block(&mut self, block: Block) -> Result<BlockResult> {
         // Generate PoH timestamp (Solana-style)
@@ -110,18 +110,18 @@ impl MolanaConsensus {
 - **Fast Finality**: Combined BFT mechanisms reach consensus in ~350ms
 - **EVM Native**: All Ethereum tooling works out-of-the-box
 
-#### 2. Hybrid State Database (MolanaDB)
+#### 2. Hybrid State Database (bonknadDB)
 
-MolanaDB combines Monad's custom MonadDB database system with Solana's AccountsDB architecture.
+bonknadDB combines Monad's custom MonadDB database system with Solana's AccountsDB architecture.
 
 **Architecture:**
 
 ```rust
-// MolanaDB: Hybrid state storage
+// bonknadDB: Hybrid state storage
 use monad_db::MonadDB;
 use solana_accounts_db::AccountsDB;
 
-pub struct MolanaDB {
+pub struct bonknadDB {
     /// Monad-style key-value store for EVM state
     evm_state: MonadDB,
     
@@ -132,7 +132,7 @@ pub struct MolanaDB {
     cross_index: CrossChainIndex,
 }
 
-impl MolanaDB {
+impl bonknadDB {
     /// Read EVM account state
     pub fn get_evm_account(&self, address: H160) -> Option<EvmAccount> {
         self.evm_state.get(&address.into())
@@ -161,7 +161,7 @@ impl MolanaDB {
 
 #### 3. Parallel Transaction Execution
 
-Molana implements Monad's optimistic parallel execution with Solana's transaction batching.
+bonknad implements Monad's optimistic parallel execution with Solana's transaction batching.
 
 ```cpp
 // C++ implementation for maximum performance (Monad-style)
@@ -234,14 +234,14 @@ public:
 
 ### Performance Targets
 
-| Metric | Molana | Monad | Solana | Ethereum |
+| Metric | bonknad | Monad | Solana | Ethereum |
 |--------|--------|-------|--------|----------|
 | **TPS (Theoretical)** | 50,000+ | 10,000 | 65,000 | 15-30 |
 | **TPS (Sustained)** | 15,000+ | ~5,000 | 3,500 | 15-30 |
 | **Block Time** | 300ms | 400ms | 400ms | 12s |
 | **Finality** | 350ms | 800ms | 400ms | 13min |
 | **Gas Model** | EVM-compatible | EVM-compatible | Compute units | EVM |
-| **Consensus** | MolanaBFT | MonadBFT | Tower BFT + PoH | PoS (Gasper) |
+| **Consensus** | bonknadBFT | MonadBFT | Tower BFT + PoH | PoS (Gasper) |
 | **Validator Hardware** | Medium-High | High | Medium | Low-Medium |
 
 ### Token Economics
@@ -270,7 +270,7 @@ public:
 
 ---
 
-## Running a Molana Node
+## Running a bonknad Node
 
 ### Hardware Requirements
 
@@ -297,19 +297,19 @@ source $HOME/.cargo/env
 # Install Solana CLI (for compatibility)
 sh -c "$(curl -sSfL https://release.solana.com/v1.18.0/install)"
 
-# Clone Molana repository
-git clone https://github.com/molana-labs/molana.git
-cd molana
+# Clone bonknad repository
+git clone https://github.com/bonknad-labs/bonknad.git
+cd bonknad
 
 # Build from source
 cargo build --release
 
-# The binary will be at: target/release/molana
+# The binary will be at: target/release/bonknad
 ```
 
 ### Configuration
 
-Create a configuration file at `~/.molana/config.toml`:
+Create a configuration file at `~/.bonknad/config.toml`:
 
 ```toml
 [network]
@@ -358,16 +358,16 @@ tracing_enabled = false
 
 ```bash
 # Validator node
-./target/release/molana \
-  --config ~/.molana/config.toml \
-  --ledger /mnt/molana-ledger \
-  --log /var/log/molana/validator.log
+./target/release/bonknad \
+  --config ~/.bonknad/config.toml \
+  --ledger /mnt/bonknad-ledger \
+  --log /var/log/bonknad/validator.log
 
 # RPC node (non-voting)
-./target/release/molana \
-  --config ~/.molana/config.toml \
+./target/release/bonknad \
+  --config ~/.bonknad/config.toml \
   --rpc-only \
-  --ledger /mnt/molana-ledger
+  --ledger /mnt/bonknad-ledger
 ```
 
 ---
@@ -376,7 +376,7 @@ tracing_enabled = false
 
 ### Deploying Smart Contracts
 
-Molana is **100% EVM-compatible**, meaning any Ethereum smart contract can be deployed without modification.
+bonknad is **100% EVM-compatible**, meaning any Ethereum smart contract can be deployed without modification.
 
 **Using Hardhat:**
 
@@ -384,14 +384,14 @@ Molana is **100% EVM-compatible**, meaning any Ethereum smart contract can be de
 // hardhat.config.js
 module.exports = {
   networks: {
-    molana: {
-      url: "https://rpc.molana.network",
-      chainId: 9999,  // Molana mainnet chain ID
+    bonknad: {
+      url: "https://rpc.bonknad.network",
+      chainId: 9999,  // bonknad mainnet chain ID
       accounts: [process.env.PRIVATE_KEY],
       gasPrice: 1000000,  // 0.001 MOLA per gas unit
     },
-    molanaTestnet: {
-      url: "https://testnet-rpc.molana.network",
+    bonknadTestnet: {
+      url: "https://testnet-rpc.bonknad.network",
       chainId: 9998,
       accounts: [process.env.PRIVATE_KEY],
     },
@@ -417,8 +417,8 @@ npm install --save-dev hardhat @nomicfoundation/hardhat-toolbox
 # Compile contracts
 npx hardhat compile
 
-# Deploy to Molana mainnet
-npx hardhat run scripts/deploy.js --network molana
+# Deploy to bonknad mainnet
+npx hardhat run scripts/deploy.js --network bonknad
 ```
 
 **Example Contract:**
@@ -428,10 +428,10 @@ npx hardhat run scripts/deploy.js --network molana
 pragma solidity ^0.8.24;
 
 /**
- * @title MolanaGreeter
+ * @title bonknadGreeter
  * @dev Example contract demonstrating EVM compatibility
  */
-contract MolanaGreeter {
+contract bonknadGreeter {
     string public greeting;
     address public owner;
     
@@ -464,8 +464,8 @@ contract MolanaGreeter {
 ```typescript
 import { ethers } from "ethers";
 
-// Connect to Molana network
-const provider = new ethers.JsonRpcProvider("https://rpc.molana.network");
+// Connect to bonknad network
+const provider = new ethers.JsonRpcProvider("https://rpc.bonknad.network");
 
 // Create wallet
 const wallet = new ethers.Wallet(process.env.PRIVATE_KEY!, provider);
@@ -491,8 +491,8 @@ console.log("Transaction confirmed!");
 ```javascript
 const Web3 = require("web3");
 
-// Initialize Web3 with Molana RPC
-const web3 = new Web3("https://rpc.molana.network");
+// Initialize Web3 with bonknad RPC
+const web3 = new Web3("https://rpc.bonknad.network");
 
 // Load contract
 const contract = new web3.eth.Contract(
@@ -506,23 +506,23 @@ console.log(`Greeting: ${result}`);
 
 // Send transaction
 await contract.methods
-  .setGreeting("Hello, Molana!")
+  .setGreeting("Hello, bonknad!")
   .send({ from: accounts[0], gas: 100000 });
 ```
 
 ### Native Solana Program Calls (Advanced)
 
-While Molana is primarily EVM-focused, you can also interact with native Solana programs for specific use cases:
+While bonknad is primarily EVM-focused, you can also interact with native Solana programs for specific use cases:
 
 ```typescript
 import { Connection, PublicKey, Transaction } from "@solana/web3.js";
 import { Program, AnchorProvider } from "@coral-xyz/anchor";
 
-// Connect to Molana (Solana-compatible endpoint)
-const connection = new Connection("https://solana-rpc.molana.network");
+// Connect to bonknad (Solana-compatible endpoint)
+const connection = new Connection("https://solana-rpc.bonknad.network");
 
 // Call a native Solana program
-const programId = new PublicKey("MoLaNa11111111111111111111111111111111111");
+const programId = new PublicKey("bonknad11111111111111111111111111111111111");
 const program = new Program(idl, programId, provider);
 
 const tx = await program.methods
@@ -541,21 +541,21 @@ console.log("Solana program transaction:", tx);
 
 ### Cross-Chain Compatibility
 
-Molana maintains compatibility with both Ethereum and Solana ecosystems through native bridges.
+bonknad maintains compatibility with both Ethereum and Solana ecosystems through native bridges.
 
 **Supported Bridges:**
-1. **Molana ↔ Ethereum**: Lock-and-mint bridge for ERC-20 tokens
-2. **Molana ↔ Solana**: Native account mapping for SPL tokens
-3. **Molana ↔ Bitcoin**: HTLC-based BTC bridge (via Lightning Network)
-4. **Molana ↔ Monad**: Direct migration path for Monad applications
+1. **bonknad ↔ Ethereum**: Lock-and-mint bridge for ERC-20 tokens
+2. **bonknad ↔ Solana**: Native account mapping for SPL tokens
+3. **bonknad ↔ Bitcoin**: HTLC-based BTC bridge (via Lightning Network)
+4. **bonknad ↔ Monad**: Direct migration path for Monad applications
 
 ### Example: Bridging USDC from Ethereum
 
 ```typescript
 import { ethers } from "ethers";
 
-// Molana Bridge Contract on Ethereum
-const BRIDGE_ADDRESS = "0xMoLaNaBrIdGe111111111111111111111111111";
+// bonknad Bridge Contract on Ethereum
+const BRIDGE_ADDRESS = "0xbonknadBrIdGe111111111111111111111111111";
 const USDC_ADDRESS = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48";
 
 // Connect to Ethereum
@@ -566,16 +566,16 @@ const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, ethProvider);
 const usdc = new ethers.Contract(USDC_ADDRESS, usdcAbi, wallet);
 await usdc.approve(BRIDGE_ADDRESS, ethers.parseUnits("100", 6));
 
-// Bridge to Molana
+// Bridge to bonknad
 const bridge = new ethers.Contract(BRIDGE_ADDRESS, bridgeAbi, wallet);
-await bridge.bridgeToMolana(
+await bridge.bridgeTobonknad(
   USDC_ADDRESS,
   ethers.parseUnits("100", 6),
-  molanaRecipientAddress,
+  bonknadRecipientAddress,
   { gasLimit: 200000 }
 );
 
-console.log("USDC bridged to Molana!");
+console.log("USDC bridged to bonknad!");
 ```
 
 ---
@@ -584,7 +584,7 @@ console.log("USDC bridged to Molana!");
 
 ### DeFi Applications
 
-Molana's high throughput and low latency make it ideal for:
+bonknad's high throughput and low latency make it ideal for:
 
 - **High-Frequency DEXs**: Order book-based exchanges with sub-second settlement
 - **Perpetual Futures**: Leveraged trading with minimal liquidation risk
@@ -610,7 +610,7 @@ Molana's high throughput and low latency make it ideal for:
 
 ## Governance
 
-Molana utilizes an on-chain governance system inspired by both Compound and Solana's governance model.
+bonknad utilizes an on-chain governance system inspired by both Compound and Solana's governance model.
 
 ### Governance Token
 
@@ -648,18 +648,18 @@ Molana utilizes an on-chain governance system inspired by both Compound and Sola
 
 ### Bug Bounty Program
 
-Molana offers rewards for responsible disclosure of security vulnerabilities:
+bonknad offers rewards for responsible disclosure of security vulnerabilities:
 
 - **Critical**: Up to $500,000 MOLA
 - **High**: Up to $100,000 MOLA
 - **Medium**: Up to $25,000 MOLA
 - **Low**: Up to $5,000 MOLA
 
-Report vulnerabilities to: security@molana.network
+Report vulnerabilities to: security@bonknad.network
 
 ### Known Limitations
 
-As a newly forked blockchain, Molana inherits certain considerations:
+As a newly forked blockchain, bonknad inherits certain considerations:
 
 1. **Mainnet Maturity**: Not yet battle-tested like parent chains
 2. **Validator Decentralization**: Early-stage validator set
@@ -672,7 +672,7 @@ As a newly forked blockchain, Molana inherits certain considerations:
 
 ### 2025 Q4 ✅
 - [x] Initial codebase fork from Monad and Solana
-- [x] MolanaBFT consensus prototype
+- [x] bonknadBFT consensus prototype
 - [x] Testnet v1 launch
 - [x] Developer documentation
 
@@ -696,7 +696,7 @@ As a newly forked blockchain, Molana inherits certain considerations:
 - [ ] DAO governance launch
 
 ### 2026 Q4
-- [ ] Molana Improvement Proposals (MIPs) system
+- [ ] bonknad Improvement Proposals (MIPs) system
 - [ ] Decentralized validator selection
 - [ ] Advanced DeFi primitives (options, synthetics)
 - [ ] Enterprise blockchain-as-a-service
@@ -705,26 +705,26 @@ As a newly forked blockchain, Molana inherits certain considerations:
 
 ## Community & Support
 
-- **Website**: https://molana.network (placeholder)
-- **Documentation**: https://docs.molana.network
-- **GitHub**: https://github.com/molana-labs
-- **Discord**: https://discord.gg/molana
-- **Twitter**: https://twitter.com/molana_network
-- **Telegram**: https://t.me/molana_official
-- **Forum**: https://forum.molana.network
+- **Website**: https://bonknad.network (placeholder)
+- **Documentation**: https://docs.bonknad.network
+- **GitHub**: https://github.com/bonknad-labs
+- **Discord**: https://discord.gg/bonknad
+- **Twitter**: https://twitter.com/bonknad_network
+- **Telegram**: https://t.me/bonknad_official
+- **Forum**: https://forum.bonknad.network
 
 ---
 
 ## FAQ
 
-**Q: Is Molana a Layer-1 or Layer-2?**
-A: Molana is a Layer-1 blockchain—it does not rely on Ethereum or Solana for security.
+**Q: Is bonknad a Layer-1 or Layer-2?**
+A: bonknad is a Layer-1 blockchain—it does not rely on Ethereum or Solana for security.
 
 **Q: Can I deploy existing Ethereum contracts?**
-A: Yes! Molana is 100% EVM bytecode-compatible. Simply change your RPC endpoint.
+A: Yes! bonknad is 100% EVM bytecode-compatible. Simply change your RPC endpoint.
 
-**Q: What's the difference between Molana and Monad?**
-A: Molana integrates Solana's Proof-of-History and architectural optimizations to achieve higher throughput.
+**Q: What's the difference between bonknad and Monad?**
+A: bonknad integrates Solana's Proof-of-History and architectural optimizations to achieve higher throughput.
 
 **Q: Can I use Solana wallets?**
 A: For native Solana operations, yes. For EVM contracts, use Ethereum wallets (MetaMask, etc.).
@@ -738,33 +738,33 @@ A: Stake a minimum of 100,000 MOLA and meet hardware requirements. See validator
 **Q: Are there transaction fees?**
 A: Yes, similar to Ethereum gas fees. Typical transaction costs ~$0.0001-0.001.
 
-**Q: Is Molana open source?**
+**Q: Is bonknad open source?**
 A: Yes, fully open source under Apache 2.0 license.
 
 ---
 
 ## Technical Comparisons
 
-### Molana vs. Monad
+### bonknad vs. Monad
 
-| Feature | Molana | Monad |
+| Feature | bonknad | Monad |
 |---------|--------|-------|
 | EVM Compatibility | ✅ Full | ✅ Full |
 | Parallel Execution | ✅ Enhanced | ✅ Yes |
-| Consensus | MolanaBFT (hybrid) | MonadBFT |
+| Consensus | bonknadBFT (hybrid) | MonadBFT |
 | Block Time | 300ms | 400ms |
 | Finality | 350ms | 800ms |
 | Throughput Target | 50,000 TPS | 10,000 TPS |
 | Timestamp Mechanism | PoH + MonadBFT | MonadBFT only |
 | Mainnet Status | Q1 2026 | Launched Nov 2025 |
 
-### Molana vs. Solana
+### bonknad vs. Solana
 
-| Feature | Molana | Solana |
+| Feature | bonknad | Solana |
 |---------|--------|--------|
 | EVM Support | ✅ Native | ❌ No (Neon EVM exists) |
 | Programming Model | Solidity + Rust | Rust (Anchor) |
-| Consensus | MolanaBFT | Tower BFT + PoH |
+| Consensus | bonknadBFT | Tower BFT + PoH |
 | Block Time | 300ms | 400ms |
 | Finality | 350ms | 400ms |
 | Throughput (Theoretical) | 50,000 TPS | 65,000 TPS |
@@ -783,7 +783,7 @@ We welcome contributions from the community! See [CONTRIBUTING.md](./CONTRIBUTIN
 - Improve documentation
 - Participate in governance discussions
 - Run testnet validators
-- Build applications on Molana
+- Build applications on bonknad
 
 ---
 
@@ -791,7 +791,7 @@ We welcome contributions from the community! See [CONTRIBUTING.md](./CONTRIBUTIN
 
 **⚠️ EXPERIMENTAL SOFTWARE**
 
-Molana is an experimental blockchain protocol combining two cutting-edge technologies. While we've carefully designed the system, unforeseen risks exist:
+bonknad is an experimental blockchain protocol combining two cutting-edge technologies. While we've carefully designed the system, unforeseen risks exist:
 
 - **Smart Contract Risk**: Bugs in bridge contracts could result in loss of funds
 - **Consensus Risk**: Novel consensus mechanisms may have edge cases
@@ -806,15 +806,15 @@ Cryptocurrency investments carry substantial risk. The information provided is f
 
 ## License
 
-Molana is licensed under [Apache 2.0](./LICENSE).
+bonknad is licensed under [Apache 2.0](./LICENSE).
 
-Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion in Molana by you shall be licensed as above, without any additional terms or conditions.
+Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion in bonknad by you shall be licensed as above, without any additional terms or conditions.
 
 ---
 
 ## Acknowledgments
 
-Molana stands on the shoulders of giants. We extend our gratitude to:
+bonknad stands on the shoulders of giants. We extend our gratitude to:
 
 - **Monad Labs**: For pioneering parallel EVM execution
 - **Solana Labs**: For proving high-performance blockchains are possible
@@ -826,7 +826,7 @@ Molana stands on the shoulders of giants. We extend our gratitude to:
 ---
 
 <div align="center">
-  <p><strong>Molana: Where Monad Meets Solana</strong></p>
+  <p><strong>bonknad: Where Monad Meets Solana</strong></p>
   <p><em>Parallel Execution. Proof-of-History. Unlimited Possibilities.</em></p>
   <br>
   <p>Building the fastest EVM-compatible blockchain in existence.</p>
